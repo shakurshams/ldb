@@ -5,7 +5,7 @@ from flask import Flask, logging
 service = Flask(__name__)
 
 logger = logging.create_logger(service)
-logger.addHandler(FileHandler("../data_app.log"))
+logger.addHandler(FileHandler("data_app.log"))
 
 app = Celery(
     "data_app",
