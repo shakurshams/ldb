@@ -33,7 +33,8 @@ def add_url_description(year, uni_data):
     uni_data["Url"] = ""
     uni_data["Description"] = ""
 
-    for i, _ in enumerate(uni_data):
+    for i, _ in uni_data.iterrows():
+        logger.info(str(i))
         uni = uni_data.loc[i]["Institution"]
         api_data = call_duckduckgo(uni)
         try:
