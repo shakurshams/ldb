@@ -1,0 +1,14 @@
+# syntax=docker/dockerfile:1
+
+FROM python:3.8-slim-buster
+
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+COPY . .
+
+RUN python setup.py install
+# celery -A data_app.config worker --loglevel=INFO -Q enrich,db
+CMD [ "flask", "run" , "--host=0.0.0.0", "--port=5000"]
