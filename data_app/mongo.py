@@ -1,8 +1,8 @@
 from pymongo import MongoClient
 
 
-def get_client(host='localhost', port=27017, maxPoolSize=200):
-    return MongoClient(host, port, maxPoolSize=200)
+def get_client(host="mongo", port=27017, maxPoolSize=200):
+    return MongoClient(f"mongodb://root:example@{host}:{port}/", maxPoolSize=200)
 
 
 def get_db(db="ldb"):

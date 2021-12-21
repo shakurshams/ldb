@@ -41,6 +41,9 @@ def add_url_description(year, uni_data):
         except TypeError as e:
             api_data = {}
             logger.exception(e)
+        except ValueError as e:
+            api_data = {}
+            logger.exception(e)
         finally:
             insert_db.delay(
                 "university",
